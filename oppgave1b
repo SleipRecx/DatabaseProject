@@ -5,4 +5,4 @@
 5. Kan hente øvelsene som tilhører en spesiell treningsøkt og oprette en ny mal med de samme øvelsene med ønsket navn. Man kan deretter også lagre en økt som henter øvelsene som tilhører en mal.
 6. Både notater og resultater er relatert til en treningsøkt, og kan derfor kobles opp mot samme dato. Derfra kan vi sammenligne resultater og informasjon fra notater.
 7. Ved å selecte all info som er i tabellen «notat» får vi en logg over alle treningsnotatene.
-8.
+8. ER-moddelen vår støtter både sletting og oppdatering av alle grupper, delgrupper og øvelser.
