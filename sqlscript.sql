@@ -69,6 +69,7 @@ CREATE TABLE Mal (
   mal_id int unsigned AUTO_INCREMENT NOT NULL,
   navn varchar(50),
   ovelse_id_fk int unsigned,
+  maal_aktiv smallint,
   FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE
 );
 
