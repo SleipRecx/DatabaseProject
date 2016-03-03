@@ -6,8 +6,8 @@ CREATE TABLE Treningsokt (
 );
 
 CREATE TABLE OvelserTreningsokt(
-  oktID_fk int NOT NULL,
-  ovelseID_fk int NOT NULL,
+  oktID_fk int unsigned NOT NULL,
+  ovelseID_fk int unsigned NOT NULL,
   FOREIGN KEY(oktID_fk) REFERENCES Treningsokt(oktID) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY(ovelseID_fk) REFERENCES Ovelse(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
