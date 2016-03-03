@@ -1,0 +1,12 @@
+Forklaring av sammenhengen til relasjoner og kardinaliteter fra ER-diagrammet til SQL
+
+Den svake tabellen Notat er implementert ved at hovednøkkelen til Notat er linket
+til hovednøkkelen til tabellen Treningsokt.
+
+Relasjonene hvor kardinalitetene er "mange-til-mange" er implementert med spleisetabeller.
+Dette gjelder relasjonene Kategori_tilhorer, Øvelser_i_Mal, Kan_erstatte, Øvelser_i_treningsøkt.
+
+Arvetabellene er implementert ved at de linkes til foreldretabellen ved hjelp av en fremmednøkkel.
+
+Relasjonene hvor kardinalitetene er "en-til-mange" er bevart ved å ha en fremmednøkkel i tabellen
+som er på "en" siden av relasjonen. For eksempel som gjort i tabellen Ovelse som linker til tabellen Kategori.

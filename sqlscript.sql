@@ -5,22 +5,6 @@ CREATE TABLE Treningsokt (
   PRIMARY KEY (okt_id)
 );
 
-CREATE TABLE Ovelse (
-  ovelse_id int unsigned AUTO_INCREMENT NOT NULL,
-  kategori_id_fk int unsigned,
-  navn varchar(50),
-  beskrivelse varchar(255),
-  PRIMARY KEY (ovelse_id)
-  FOREIGN KEY kategori_id_fk REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE SET NULL
-);
-
-CREATE TABLE Ovelser_i_treningsokt(
-  okt_id_fk int unsigned NOT NULL,
-  ovelse_id_fk int unsigned NOT NULL,
-  FOREIGN KEY(okt_id_fk) REFERENCES Treningsokt(okt_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
 /* weak */
 CREATE TABLE Notat (
   notat_id int unsigned not null PRIMARY KEY
@@ -31,18 +15,22 @@ CREATE TABLE Notat (
   tips varchar(255)
 );
 
+CREATE TABLE Ovelse (
+  ovelse_id int unsigned AUTO_INCREMENT NOT NULL,
+  kategori_id_fk int unsigned,
+  navn varchar(50),
+  beskrivelse varchar(255),
+  PRIMARY KEY (ovelse_id)
+  FOREIGN KEY kategori_id_fk REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE SET NULL
+);
+
 CREATE TABLE Resultat (
   resultat_id int unsigned AUTO_INCREMENT NOT NULL,
   ovelse_id_fk int unsigned NOT NULL,
+  treningsokt_id_fk int unsigned NOT NULL,
   PRIMARY KEY(resultat_id),
-  FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id)
-);
-
-CREATE TABLE Resultater_i_Treningsokt (
-  okt_id_fk int unsigned,
-  resultat_id:fk int unsigned,
-  FOREIGN KEY(okt_id_fk) REFERENCES Treningsokt(okt_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  FOREIGN KEY(resultat_id_fk) REFERENCES Resultat(resultat_id) ON UPDATE CASCADE ON DELETE CASCADE
+  FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id),
+  FOREIGN KEY(treningsokt_id_fk) REFERENCES Treningsokt(okt_id)
 );
 
 CREATE TABLE Maal (
@@ -58,19 +46,29 @@ CREATE TABLE Kategori (
   PRIMARY KEY(kategori_id)
 );
 
-CREATE TABLE Kategori_tilhorer (
-  overkategori_id_fk int unsigned NOT NULL,
-  kategori_id_fk int unsigned NOT NULL,
-  FOREIGN KEY(overkategori_id_fk) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  FOREIGN KEY(kategori_id_fk) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
 CREATE TABLE Mal (
   mal_id int unsigned AUTO_INCREMENT NOT NULL,
   navn varchar(50),
   ovelse_id_fk int unsigned,
   maal_aktiv smallint,
+  PRIMARY KEY(mal_id),
   FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE
+);
+
+
+/* -------------- SPLEISETABELLER -------------- */
+CREATE TABLE Kan_erstatte_ovelse (
+  ovelse_id_fk int unsigned NOT NULL,
+  kan_erstatte_id_fk int unsigned NOT NULL,
+  FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY(kan_erstatte_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE Kategori_tilhorer (
+  overkategori_id_fk int unsigned NOT NULL,
+  kategori_id_fk int unsigned NOT NULL,
+  FOREIGN KEY(overkategori_id_fk) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY(kategori_id_fk) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Ovelse_i_mal (
@@ -80,6 +78,15 @@ CREATE TABLE Ovelse_i_mal (
   FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+CREATE TABLE Ovelser_i_treningsokt(
+  okt_id_fk int unsigned NOT NULL,
+  ovelse_id_fk int unsigned NOT NULL,
+  FOREIGN KEY(okt_id_fk) REFERENCES Treningsokt(okt_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+/* -------------- ARVETABELLER -------------- */
 CREATE TABLE Utendorstrening (
   okt_id_fk int unsigned,
   vaerforhold varchar(255),
@@ -87,40 +94,38 @@ CREATE TABLE Utendorstrening (
   FOREIGN KEY (okt_id_fk) REFERENCES Treningsokt(okt_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-
-/* Inheritance tables */
 CREATE TABLE Innendorstrening (
   okt_id_fk int unsigned,
   ventilasjon varchar(255),
   ant_tilskuere int,
-  FOREIGN KEY (okt_id_fk) REFERENCES Treningsokt(okt_id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY(okt_id_fk) REFERENCES Treningsokt(okt_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE Styrke_kondisjon (
+CREATE TABLE Styrke_kondisjon_til_resultat (
   resultat_id_fk int unsigned,
   belastning int,
   reps int,
   ant_sett int,
-  FOREIGN KEY resultat_id_fk REFERENCES Resultat(resultat_id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY(resultat_id_fk) REFERENCES Resultat(resultat_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE Utholdenhet (
+CREATE TABLE Utholdenhet_til_resultat (
   resultat_id_fk int unsigned,
   km decimal(10,2),
   tid int,
-  FOREIGN KEY resultat_id_fk REFERENCES Resultat(resultat_id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY(resultat_id_fk) REFERENCES Resultat(resultat_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE Styrke_kondisjon (
+CREATE TABLE Styrke_kondisjon_til_maal (
   maal_id_fk int unsigned,
   belastning int,
   reps int,
-  FOREIGN KEY maal_id_fk REFERENCES Maal(maal_id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY(maal_id_fk) REFERENCES Maal(maal_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE Utholdenhet (
+CREATE TABLE Utholdenhet_til_maal (
   maal_id_fk int unsigned,
   km decimal(10,2),
   tid int,
-  FOREIGN KEY maal_id_fk REFERENCES Maal(maal_id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY(maal_id_fk) REFERENCES Maal(maal_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
