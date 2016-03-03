@@ -21,12 +21,12 @@ CREATE TABLE Ovelse (
 
 /* WEAK */
 CREATE TABLE Notat (
-  notat_id int unsigned not null,
+  notat_id int unsigned not null PRIMARY KEY
+  REFERENCES Treningsokt(okt_id) ON DELETE CASCADE ON UPDATE CASCADE,
   personlig_form varchar(255),
   presentasjon varchar(255),
   treningsformal varchar(255),
-  tips varchar(255),
-  PRIMARY KEY (notat_id) REFERENCES Treningsokt(okt_id) ON DELETE CASCADE
+  tips varchar(255)
 );
 
 CREATE TABLE Resultat (
@@ -45,12 +45,12 @@ CREATE TABLE Maal (
 CREATE TABLE Kategori (
   kategori_id int unsigned AUTO_INCREMENT NOT NULL,
   type varchar(50),
-  PRIMARY KEY(kategori_id),
+  PRIMARY KEY(kategori_id)
 );
 
 CREATE TABLE KategoriTilhorer (
-  overkategori_id int unsigned,
-  kategori_id int unsigned,
+  overkategori_id int unsigned NOT NULL,
+  kategori_id int unsigned NOT NULL,
   FOREIGN KEY(overkategori_id) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY(kategori_id) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
