@@ -5,18 +5,20 @@ CREATE TABLE Treningsokt (
   PRIMARY KEY (okt_id)
 );
 
-CREATE TABLE OvelserTreningsokt(
+CREATE TABLE Ovelse (
+  ovelse_id int unsigned AUTO_INCREMENT NOT NULL,
+  kategori_id_fk int unsigned,
+  navn varchar(50),
+  beskrivelse varchar(255),
+  PRIMARY KEY (ovelse_id)
+  FOREIGN KEY kategori_id_fk REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE SET NULL
+);
+
+CREATE TABLE Ovelser_i_treningsokt(
   okt_id_fk int unsigned NOT NULL,
   ovelse_id_fk int unsigned NOT NULL,
   FOREIGN KEY(okt_id_fk) REFERENCES Treningsokt(okt_id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-CREATE TABLE Ovelse (
-  ovelse_id int unsigned AUTO_INCREMENT NOT NULL,
-  navn varchar(50),
-  beskrivelse varchar(255),
-  PRIMARY KEY (ovelse_id)
 );
 
 /* WEAK */
@@ -48,7 +50,7 @@ CREATE TABLE Kategori (
   PRIMARY KEY(kategori_id)
 );
 
-CREATE TABLE KategoriTilhorer (
+CREATE TABLE Kategori_tilhorer (
   overkategori_id_fk int unsigned NOT NULL,
   kategori_id_fk int unsigned NOT NULL,
   FOREIGN KEY(overkategori_id_fk) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE,
