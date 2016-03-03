@@ -7,7 +7,7 @@ CREATE TABLE Treningsokt (
 
 /* weak */
 CREATE TABLE Notat (
-  notat_id int unsigned not null PRIMARY KEY
+  notat_id int unsigned NOT NULL PRIMARY KEY
   REFERENCES Treningsokt(okt_id) ON DELETE CASCADE ON UPDATE CASCADE,
   personlig_form int(1),
   presentasjon int(1),
@@ -15,13 +15,28 @@ CREATE TABLE Notat (
   tips varchar(255)
 );
 
+CREATE TABLE Kategori (
+  kategori_id int unsigned AUTO_INCREMENT NOT NULL,
+  type varchar(50),
+  PRIMARY KEY(kategori_id)
+);
+
 CREATE TABLE Ovelse (
-  ovelse_id int unsigned AUTO_INCREMENT NOT NULL,
+  ovelse_id int unsigned NOT NULL AUTO_INCREMENT,
   kategori_id_fk int unsigned,
   navn varchar(50),
   beskrivelse varchar(255),
-  PRIMARY KEY (ovelse_id)
-  FOREIGN KEY kategori_id_fk REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE SET NULL
+  PRIMARY KEY (ovelse_id),
+  FOREIGN KEY (kategori_id_fk) REFERENCES Kategori(kategori_id)
+  ON UPDATE CASCADE
+  ON DELETE SET NULL
+);
+
+CREATE TABLE Maal (
+  maal_id int unsigned AUTO_INCREMENT NOT NULL,
+  ovelse_id_fk int unsigned,
+  innen_dato date,
+  PRIMARY KEY(maal_id)
 );
 
 CREATE TABLE Resultat (
@@ -33,19 +48,6 @@ CREATE TABLE Resultat (
   FOREIGN KEY(treningsokt_id_fk) REFERENCES Treningsokt(okt_id)
 );
 
-CREATE TABLE Maal (
-  maal_id int unsigned AUTO_INCREMENT NOT NULL,
-  ovelse_id_fk int unsigned,
-  innen_dato date,
-  PRIMARY KEY(maal_id)
-);
-
-CREATE TABLE Kategori (
-  kategori_id int unsigned AUTO_INCREMENT NOT NULL,
-  type varchar(50),
-  PRIMARY KEY(kategori_id)
-);
-
 CREATE TABLE Mal (
   mal_id int unsigned AUTO_INCREMENT NOT NULL,
   navn varchar(50),
@@ -54,7 +56,6 @@ CREATE TABLE Mal (
   PRIMARY KEY(mal_id),
   FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE
 );
-
 
 /* -------------- SPLEISETABELLER -------------- */
 CREATE TABLE Kan_erstatte_ovelse (
@@ -84,7 +85,6 @@ CREATE TABLE Ovelser_i_treningsokt(
   FOREIGN KEY(okt_id_fk) REFERENCES Treningsokt(okt_id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
-
 
 /* -------------- ARVETABELLER -------------- */
 CREATE TABLE Utendorstrening (
