@@ -54,3 +54,17 @@ CREATE TABLE KategoriTilhorer (
   FOREIGN KEY(overkategori_id) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY(kategori_id) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+CREATE TABLE Mal (
+  mal_id int unsigned AUTO_INCREMENT NOT NULL,
+  navn varchar(50),
+  ovelse_id_fk int unsigned,
+  FOREIGN KEY(ovelse_id_fk) REFERENCES Ovelse(ovelse_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE Ovelse_i_mal (
+  overkategori_id int unsigned,
+  kategori_id int unsigned,
+  FOREIGN KEY(overkategori_id) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY(kategori_id) REFERENCES Kategori(kategori_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
