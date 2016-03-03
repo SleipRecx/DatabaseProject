@@ -1,8 +1,8 @@
-1. Treningsøkten er relatert til øvelse, resultat og notat. Med notatet kan brukeren skrive inn hvordan treningen har gått, og med øvelse og resultat kan brukeren skrive inn hvilke øvelser han gjorde og hvordan resultatet var på disse øvelsene. Øvelse og resultat er også relatert, slik at man kan knytte bestemte resultater til lagrede øvelser. 
-2. Oversikt over kjente øvelser har vi i øvelse-tabellen. Øvelse og mål er relaterte, og brukeren kan skrive inn informasjon for målet samt en innen_dato som forteller noe om når målet skal være nådd. Målene blir lagret i en tabell, som kan hentes ut i databasen. 
-3. Vi lagrer alle resultatene i resultat-tabellen, og kan derfor hente ut progresjon. Målene er også lagret med relasjon til øvelse, og man kan derfor se hvilke øvelser som har hatt hvilke mål. 
-4. Alle treningsøkter har datoer, og resultatene er linket til en treningsøkt. Vi kan derfor finne ut alt fra differanse til beste resultat i uken, måneden, osv. Dersom vi linker treningsøkt, øvelse, mål og resultat får vi inn datoer for målene samt dato for når resultatene var ført. Da kan vi finne ut om mål er nådd eller ikke for periodene. 
-5.
-6. Både notater og resultater er relatert til en treningsøkt, og kan derfor kobles opp mot samme dato. Derfra kan vi sammenligne resultater og informasjon fra notater. 
-7. Ved å selecte all info som er i tabellen «notat» får vi en logg over alle treningsnotatene. 
-8. 
+1. Treningsøkten er relatert til øvelse, resultat og notat. Med notatet kan brukeren skrive inn hvordan treningen har gått, og med øvelse og resultat kan brukeren skrive inn hvilke øvelser han gjorde og hvordan resultatet var på disse øvelsene. Øvelse og resultat er også relatert, slik at man kan knytte bestemte resultater til lagrede øvelser.
+2. Oversikt over kjente øvelser har vi i øvelse-tabellen. Øvelse og mål er relaterte, og brukeren kan skrive inn informasjon for målet samt en innen_dato som forteller noe om når målet skal være nådd. Målene blir lagret i en tabell, som kan hentes ut i databasen.
+3. Vi lagrer alle resultatene i resultat-tabellen, og kan derfor hente ut progresjon. Målene er også lagret med relasjon til øvelse, og man kan derfor se hvilke øvelser som har hatt hvilke mål.
+4. Alle treningsøkter har datoer, og resultatene er linket til en treningsøkt. Vi kan derfor finne ut alt fra differanse til beste resultat i uken, måneden, osv. Dersom vi linker treningsøkt, øvelse, mål og resultat får vi inn datoer for målene samt dato for når resultatene var ført. Da kan vi finne ut om mål er nådd eller ikke for periodene.
+5. Kan hente øvelsene som tilhører en spesiell treningsøkt og oprette en ny mal med de samme øvelsene med ønsket navn. Man kan deretter også lagre en økt som henter øvelsene som tilhører en mal.
+6. Både notater og resultater er relatert til en treningsøkt, og kan derfor kobles opp mot samme dato. Derfra kan vi sammenligne resultater og informasjon fra notater.
+7. Ved å selecte all info som er i tabellen «notat» får vi en logg over alle treningsnotatene.
+8.
