@@ -1,0 +1,3 @@
+username:markua_dbproject
+password:dbproject
+database:markua_treningprosjekt
