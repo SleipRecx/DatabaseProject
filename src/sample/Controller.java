@@ -2,7 +2,6 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -29,6 +28,7 @@ public class Controller {
         getAllPersons();
     }
 
+
     private void createStatement(){
         try {
             this.myStatement = myConnection.createStatement();
@@ -40,9 +40,10 @@ public class Controller {
     }
 
     private void getAllPersons(){
-        ObservableList<String> items = FXCollections.observableArrayList();
+        ObservableList<String> items;
+        items = FXCollections.observableArrayList();
         try {
-            ResultSet result = myStatement.executeQuery("SELECT * FROM test");
+            ResultSet result = myStatement.executeQuery("SELECT name FROM test");
             while (result.next()){
               items.add(result.getString("name"));
             }
@@ -57,9 +58,9 @@ public class Controller {
         getAllPersons();
     }
 
-    public void addButtonPressed(ActionEvent actionEvent) {
+    public void addButtonPressed() {
         String value = input.getText();
-        String sql = "INSERT INTO test(name) VALUES ('"+value+"')";
+        String sql = String.format("INSERT INTO test(name) VALUES ('%s')", value);
         try {
             myStatement.executeUpdate(sql);
             refresh();

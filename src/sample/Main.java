@@ -8,7 +8,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    private static DB_Setup db = new DB_Setup("jdbc:mysql://mysql.stud.ntnu.no/markua_treningprosjekt","markua_dbproject","dbproject");
+    private static DB_Setup db = new
+    DB_Setup("jdbc:mysql://mysql.stud.ntnu.no/markua_treningprosjekt","markua_dbproject","dbproject");
 
 
     @Override
