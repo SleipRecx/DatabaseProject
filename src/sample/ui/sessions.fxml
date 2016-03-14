@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ui.sessionsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ui.sessionsController">
    <children>
-      <Label layoutX="265.0" layoutY="79.0" text="Sessions" />
+      <Label layoutX="53.0" layoutY="142.0" text="Date" />
+      <Label layoutX="34.0" layoutY="84.0" text="Duration" />
+      <TextField fx:id="durationField" layoutX="95.0" layoutY="78.0" prefHeight="27.0" prefWidth="161.0" />
+      <DatePicker fx:id="datePicker" layoutX="95.0" layoutY="137.0" prefHeight="28.0" prefWidth="174.0" />
+      <ChoiceBox fx:id="choiceBox" layoutX="95.0" layoutY="206.0" prefHeight="28.0" prefWidth="174.0" />
+      <Label layoutX="40.0" layoutY="211.0" text="Where" />
+      <Label fx:id="weatherLable" layoutX="27.0" layoutY="278.0" text="Weather" />
+      <Label fx:id="tempLable" layoutX="36.0" layoutY="341.0" text="Temp" />
+      <TextField fx:id="weatherField" layoutX="95.0" layoutY="273.0" prefHeight="27.0" prefWidth="161.0" />
+      <TextField fx:id="tempField" layoutX="95.0" layoutY="336.0" prefHeight="27.0" prefWidth="161.0" promptText="celsius" />
+      <TextField fx:id="spectatorsField" layoutX="95.0" layoutY="336.0" prefHeight="27.0" prefWidth="201.0" visible="false" />
+      <Label fx:id="ventilationLable" layoutY="278.0" text="Ventilation" visible="false" />
+      <Label fx:id="spectatorsLable" layoutX="1.0" layoutY="341.0" text="Spectators" visible="false" />
+      <TextField fx:id="ventilationField" layoutX="95.0" layoutY="273.0" prefHeight="27.0" prefWidth="201.0" visible="false" />
+      <Button layoutX="252.0" layoutY="443.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="88.0" styleClass="btn-primary" text="Submit" />
+      <TextField fx:id="performanceField" layoutX="393.0" layoutY="79.0" prefHeight="27.0" prefWidth="124.0" promptText="1-10" />
+      <TextField fx:id="shapeField" layoutX="393.0" layoutY="137.0" prefHeight="27.0" prefWidth="124.0" promptText="1-10" />
+      <Label layoutX="339.0" layoutY="142.0" text="Shape" />
+      <Label layoutX="300.0" layoutY="83.0" text="Performance" />
+      <TextField fx:id="purposeField" layoutX="384.0" layoutY="206.0" />
+      <Label layoutX="327.0" layoutY="211.0" text="Purpose" />
+      <Label layoutX="433.0" layoutY="270.0" text="Tips" />
+      <TextArea fx:id="tipsField" layoutX="359.0" layoutY="300.0" prefHeight="118.0" prefWidth="201.0" styleClass="text-field" />
+      <Label layoutX="390.0" layoutY="24.0" styleClass="h4" text="Exercise Note">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

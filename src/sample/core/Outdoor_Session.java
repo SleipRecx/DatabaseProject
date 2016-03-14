@@ -2,8 +2,7 @@ package sample.core;
 
 
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Date;
+import java.sql.*;
 
 public class Outdoor_Session extends Session {
 
@@ -15,6 +14,8 @@ public class Outdoor_Session extends Session {
 
     private double temperature;
 
+    private int session_id_fk;
+
     public Outdoor_Session(Date date, int duration, double temperature, String weather) {
         super(date, duration);
         this.temperature = temperature;
@@ -23,14 +24,15 @@ public class Outdoor_Session extends Session {
 
 
     public void storeOutdoorSession(){
-        try {
-            Statement statement = myConnection.createStatement();
-            String sql = String.format("");
-            statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        //TODO INSERT INTO DATABASE
+    }
 
+    public int getSession_id_fk() {
+        return session_id_fk;
+    }
+
+    public void setSession_id_fk(int session_id_fk) {
+        this.session_id_fk = session_id_fk;
     }
 
 

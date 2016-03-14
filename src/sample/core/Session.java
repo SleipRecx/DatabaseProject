@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.*;
 
 
 public class Session {
@@ -33,6 +33,32 @@ public class Session {
         this.duration = duration;
     }
 
+    public void storeSession(){
+        try {
+
+            Statement statement = myConnection.createStatement();
+            //TODO insert session
+
+            } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getBiggestId(){
+        int id = -1;
+        try {
+            String sql  = "SELECT MAX(session_id) as maks from Training_session";
+            PreparedStatement ps = myConnection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
+            while(rs.next()){
+                 id  = rs.getInt("maks");
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return id;
+    }
 
 
     // START Getters and Setters
@@ -75,6 +101,8 @@ public class Session {
     public void setSessionid(int sessionid) {
         this.sessionid = sessionid;
     }
+
+
 
     // END Getters and Setters
 
