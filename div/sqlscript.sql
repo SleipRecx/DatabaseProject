@@ -66,7 +66,7 @@ CREATE TABLE Can_replace_exercise (
 );
 
 CREATE TABLE Category_belongs (
-  parent_catergory_id_fk int unsigned NOT NULL,
+  parent_category_id_fk int unsigned NOT NULL,
   category_id_fk int unsigned NOT NULL,
   FOREIGN KEY(parent_category_id_fk) REFERENCES Category(category_id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY(category_id_fk) REFERENCES Category(category_id) ON UPDATE CASCADE ON DELETE CASCADE

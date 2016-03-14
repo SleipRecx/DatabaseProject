@@ -1,4 +1,4 @@
-package sample;
+package sample.core;
 import java.sql.*;
 
 public class DB_Setup {
