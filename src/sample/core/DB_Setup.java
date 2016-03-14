@@ -17,7 +17,7 @@ public class DB_Setup {
 
     private void createConnect(){
         try {
-            System.out.println("Connecting to a selected database...");
+            System.out.println("Connecting to selected database...");
             Class.forName(MYSQL_DRIVER);
             myConnection = DriverManager.getConnection(this.DATABASE_URL,this.DB_USERNAME,this.DB_PASSWORD);
             System.out.println("Connected database successfully...");

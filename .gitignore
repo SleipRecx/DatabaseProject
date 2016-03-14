@@ -19,7 +19,7 @@ fagstab/
 .recommenders/
 .idea/
 out/
-gruppe11.iml
+*.iml
 
 # Eclipse Core
 .project
