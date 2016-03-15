@@ -1,4 +1,4 @@
-package sample.ui;
+package sample.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import sample.Main;
-import sample.core.DB_Setup;
+import sample.model.DB_Setup;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -1,9 +1,9 @@
-package sample.ui;
+package sample.controller;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
-import sample.core.*;
+import sample.model.*;
 
 import java.sql.Date;
 

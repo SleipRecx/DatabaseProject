@@ -1,4 +1,4 @@
-package sample.ui;
+package sample.controller;
 
 
 public class goalsController {
