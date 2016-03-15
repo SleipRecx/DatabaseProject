@@ -9,7 +9,6 @@ import java.sql.Date;
 
 public class sessionsController {
 
-
     public TextField ventilationField;
     public TextField spectatorsField;
     public TextField tempField;
@@ -86,9 +85,5 @@ public class sessionsController {
         String tips = tipsField.getText();
         Note note = new Note(shape,performance,purpose,tips,id);
         note.storeNote();
-
-
-        //Note note = new Note(shape,performance,purpose,tips,sessionid_fk);
-
     }
 }

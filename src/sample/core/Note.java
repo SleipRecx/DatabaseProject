@@ -49,6 +49,4 @@ public class Note {
         this.exercise_purpose = exercise_purpose;
     }
 
-    public void storeNote() {
-    }
 }
