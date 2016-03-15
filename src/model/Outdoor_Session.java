@@ -1,4 +1,4 @@
-package sample.model;
+package model;
 
 
 import java.sql.SQLException;

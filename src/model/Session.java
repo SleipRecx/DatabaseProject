@@ -1,6 +1,6 @@
-package sample.model;
+package model;
 
-import sample.Main;
+import Main;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;

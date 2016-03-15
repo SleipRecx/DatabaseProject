@@ -3,7 +3,7 @@ package sample.controller;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
-import sample.model.*;
+import model.*;
 
 import java.sql.Date;
 
