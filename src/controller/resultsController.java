@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class resultsController {
+public class ResultsController {
     public TextField timeField;
     public TextField distanceField;
     public Label timeLabel;
@@ -28,6 +28,7 @@ public class resultsController {
     private HashMap<String,Integer> exerciseMap;
     public TextField setsField;
     public Label setsLabel;
+    private MainController main;
 
     public void initialize() {
         ToggleGroup group = new ToggleGroup();
@@ -66,7 +67,7 @@ public class resultsController {
     }
 
 
-    private void fillSessionsBox(){
+    protected void fillSessionsBox(){
         sessionChoice.setItems(FXCollections.observableArrayList(Session.fecthAllSessions()));
         ArrayList<String> array = Session.fecthAllSessions();
         array.forEach(s->{
@@ -75,7 +76,7 @@ public class resultsController {
         });
     }
 
-    private void fillExerciseBox(){
+    protected void fillExerciseBox(){
         ArrayList<String> array = Exercise.fetchAllExercises();
         ArrayList<String> nameArray = new ArrayList<>();
         array.forEach(s->{
@@ -101,7 +102,6 @@ public class resultsController {
             endurance_result.storeEndurance_to_result();
         }
         else{
-
             Strength_condition_to_result strength_condition_result = new Strength_condition_to_result(exercise_id_fk,session_id_fk,
                     Integer.parseInt(weigthField.getText()),
                     Integer.parseInt(repsField.getText()),
@@ -111,7 +111,21 @@ public class resultsController {
             strength_condition_result.storeStrength_condition_to_result();
 
         }
+        clearFields();
+    }
+
+    private void clearFields() {
+        timeField.setText("");
+        distanceField.setText("");
+        setsField.setText("");
+        repsField.setText("");
+        weigthField.setText("");
+        exerciseChoice.setValue(null);
+        sessionChoice.setValue(null);
     }
 
 
+    public void attachMain(MainController controller) {
+        this.main = controller;
+    }
 }
