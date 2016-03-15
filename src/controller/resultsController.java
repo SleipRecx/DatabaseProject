@@ -28,6 +28,8 @@ public class resultsController {
     public HashMap<String,Integer> sessionMap;
     public ComboBox<String> exerciseChoice;
     private HashMap<String,Integer> exerciseMap;
+    public TextField setsField;
+    public Label setsLabel;
 
     public void initialize() {
         ToggleGroup group = new ToggleGroup();
@@ -44,6 +46,8 @@ public class resultsController {
                 timeField.setVisible(true);
                 distanceLabel.setVisible(true);
                 distanceField.setVisible(true);
+                setsField.setVisible(false);
+                setsLabel.setVisible(false);
                 repsLabel.setVisible(false);
                 repsField.setVisible(false);
                 weigthField.setVisible(false);
@@ -53,6 +57,8 @@ public class resultsController {
                 timeField.setVisible(false);
                 distanceLabel.setVisible(false);
                 distanceField.setVisible(false);
+                setsLabel.setVisible(true);
+                setsField.setVisible(true);
                 repsLabel.setVisible(true);
                 repsField.setVisible(true);
                 weigthField.setVisible(true);
