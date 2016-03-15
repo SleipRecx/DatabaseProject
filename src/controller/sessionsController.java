@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import model.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class sessionsController {
 
@@ -86,4 +87,7 @@ public class sessionsController {
         Note note = new Note(shape,performance,purpose,tips,id);
         note.storeNote();
     }
+
+
+
 }

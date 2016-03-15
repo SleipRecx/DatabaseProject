@@ -48,6 +48,25 @@ public class Session {
         return id;
     }
 
+    public static ArrayList<String> fecthAllSessions(){
+        ArrayList<String> array = new ArrayList<>();
+        try{
+            String sql = "SELECT date, session_id as id from Training_session";
+            PreparedStatement ps = myConnection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
+            while(rs.next()){
+                int id= rs.getInt("id");
+                Date date = rs.getDate("date");
+                array.add(String.valueOf(id)+"-"+date.toString());
+            }
+            rs.close();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return array;
+    }
+
 
     // START Getters and Setters
     public ArrayList<Exercise> getExercises() {

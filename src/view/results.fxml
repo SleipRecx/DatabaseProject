@@ -17,7 +17,7 @@
       <RadioButton fx:id="strengthButton" layoutX="121.0" layoutY="123.0" mnemonicParsing="false" text="Strength / Condition" />
       <Label layoutX="54.0" layoutY="105.0" text="Type:" />
       <TextField fx:id="weigthField" layoutX="127.0" layoutY="244.0" promptText="Weight" />
-      <ComboBox layoutX="121.0" layoutY="173.0" prefHeight="27.0" prefWidth="199.0" promptText="Select exercise" />
+      <ComboBox fx:id="exerciseChoice" layoutX="121.0" layoutY="173.0" prefHeight="27.0" prefWidth="199.0" promptText="Select exercise" />
       <Label layoutX="44.0" layoutY="178.0" text="Exercise:" />
       <TextField fx:id="repsField" layoutX="127.0" layoutY="292.0" promptText="Reps" />
       <Label fx:id="weigthLabel" layoutX="46.0" layoutY="249.0" text="Weigth: " />
