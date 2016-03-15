@@ -32,10 +32,11 @@ public class Session {
 
     public void storeSession(){
         try {
-            String sql = "INSERT INTO Training_session(date,duration) VALUES ('"+getDate().toString()+"',"+getDuration()+")";
-            Statement statement = myConnection.createStatement();
-            statement.executeUpdate(sql);
-            } catch (SQLException e) {
+            PreparedStatement ps = myConnection.prepareStatement("INSERT INTO Training_session(date,duration) VALUES (?,?)");
+            ps.setDate(1,getDate());
+            ps.setInt(2,getDuration());
+            ps.executeUpdate();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -97,9 +98,6 @@ public class Session {
     public void setSessionid(int sessionid) {
         this.sessionid = sessionid;
     }
-
-
-
     // END Getters and Setters
 
 }
