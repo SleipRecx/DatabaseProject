@@ -86,6 +86,20 @@ public class sessionsController {
         String tips = tipsField.getText();
         Note note = new Note(shape,performance,purpose,tips,id);
         note.storeNote();
+        clearfields();
+    }
+
+    private void clearfields() {
+        ventilationField.setText("");
+        datePicker.setValue(null);
+        spectatorsField.setText("");
+        tempField.setText("");
+        tipsField.setText("");
+        purposeField.setText("");
+        shapeField.setText("");
+        durationField.setText("");
+        weatherField.setText("");
+        performanceField.setText("");
     }
 
 
