@@ -1,4 +1,4 @@
-package sample.controller;
+package controller;
 
 public class resultsController {
 }

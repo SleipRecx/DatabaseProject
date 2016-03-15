@@ -1,6 +1,6 @@
 package model;
 
-import Main;
+import controller.Main;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
