@@ -3,15 +3,14 @@ package model;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-/**
- * Created by eddern on 15/03/16.
- */
+
 public class Endurance_to_result extends Result {
     private double km;
     private int time;
     private int result_id_fk;
 
-    public Endurance_to_result(double km, int time){
+    public Endurance_to_result(int exercise_id_fk,int session_id_fk,double km, int time){
+        super(exercise_id_fk,session_id_fk);
         this.km = km;
         this.time = time;
     }

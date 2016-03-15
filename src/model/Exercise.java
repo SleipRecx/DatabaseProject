@@ -2,12 +2,15 @@ package model;
 
 
 import controller.Main;
-
 import java.sql.*;
 import java.util.ArrayList;
 
 public class Exercise {
     protected static Connection myConnection = Main.getDB().getConnection();
+
+    public Exercise(){
+
+    }
 
 
     public static ArrayList<String> fetchAllExercises(){

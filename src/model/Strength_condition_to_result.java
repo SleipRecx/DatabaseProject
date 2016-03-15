@@ -3,16 +3,15 @@ package model;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-/**
- * Created by eddern on 15/03/16.
- */
+
 public class Strength_condition_to_result extends Result{
     private int weight;
     private int reps;
     private int sets;
     private int result_id_fk;
 
-    public Strength_condition_to_result(int weight, int reps, int sets){
+    public Strength_condition_to_result(int exercise_id_fk, int session_id_fk,int weight, int reps, int sets){
+        super(exercise_id_fk,session_id_fk);
         this.weight = weight;
         this.reps = reps;
         this.sets = sets;

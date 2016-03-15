@@ -4,7 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import model.Endurance_to_result;
 import model.Exercise;
+import model.Result;
 import model.Session;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,9 +59,8 @@ public class resultsController {
                 weigthLabel.setVisible(true);
             }
         });
-
-
     }
+
 
     private void fillSessionsBox(){
         sessionChoice.setItems(FXCollections.observableArrayList(Session.fecthAllSessions()));
@@ -82,8 +83,25 @@ public class resultsController {
         exerciseChoice.setItems(FXCollections.observableArrayList(nameArray));
     }
 
-
     public void buttonPressed(ActionEvent actionEvent) {
+        int exercise_id_fk = exerciseMap.get(exerciseChoice.getValue());
+        int session_id_fk = sessionMap.get(sessionChoice.getValue());
+        Result result = new Result(exercise_id_fk,session_id_fk);
+        if(enduranceButton.isSelected()){
 
+            Endurance_to_result endurance_result = new Endurance_to_result(exercise_id_fk,session_id_fk,
+                    Double.parseDouble(distanceField.getText()),
+                    Integer.parseInt(timeField.getText()));
+            result.storeResult();
+            endurance_result.setResult_id_fk(Result.getBiggestId());
+            endurance_result.storeEndurance_to_result();
+        }
+        else{
+
+
+
+        }
     }
+
+
 }
