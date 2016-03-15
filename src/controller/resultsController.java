@@ -105,9 +105,10 @@ public class resultsController {
             Strength_condition_to_result strength_condition_result = new Strength_condition_to_result(exercise_id_fk,session_id_fk,
                     Integer.parseInt(weigthField.getText()),
                     Integer.parseInt(repsField.getText()),
-                    Integer.parseInt(sets))
-
-
+                    Integer.parseInt(setsField.getText()));
+            result.storeResult();
+            strength_condition_result.setResult_id_fk(Result.getBiggestId());
+            strength_condition_result.storeStrength_condition_to_result();
 
         }
     }

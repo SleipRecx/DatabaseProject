@@ -32,7 +32,7 @@ public class Result {
     public static int getBiggestId(){
         int id = -1;
         try {
-            String sql  = "SELECT MAX(session_id) as maks from Result";
+            String sql  = "SELECT MAX(result_id) as maks from Result";
             PreparedStatement ps = myConnection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery(sql);
             while(rs.next()){
