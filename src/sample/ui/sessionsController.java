@@ -56,6 +56,7 @@ public class sessionsController {
     }
 
     public void buttonPressed(ActionEvent actionEvent) {
+
         Date date = Date.valueOf(datePicker.getValue());
         int duration = Integer.parseInt(durationField.textProperty().getValue());
 
@@ -72,16 +73,16 @@ public class sessionsController {
         else{
             String condition = weatherField.getText();
             Double temp = Double.parseDouble(tempField.getText());
-            Outdoor_Session sessiontest = new Outdoor_Session(date,duration,temp,condition);
+            Outdoor_Session session = new Outdoor_Session(date,duration,temp,condition);
+            session.storeSession();
+            int id = session.getBiggestId();
+            session.setSession_id_fk(id);
+            session.storeOutdoorSession();
         }
-
-
         int performance = Integer.parseInt(performanceField.getText());
         int shape = Integer.parseInt(shapeField.getText());
         String purpose = purposeField.getText();
         String tips = tipsField.getText();
-
-
 
 
         //Note note = new Note(shape,performance,purpose,tips,sessionid_fk);
