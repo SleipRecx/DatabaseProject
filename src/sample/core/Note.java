@@ -15,6 +15,8 @@ public class Note {
         this.sessionid_fk = sessionid_fk;
     }
 
+
+
     public String getTips() {
         return tips;
     }
@@ -45,5 +47,8 @@ public class Note {
 
     public void setExercise_purpose(String exercise_purpose) {
         this.exercise_purpose = exercise_purpose;
+    }
+
+    public void storeNote() {
     }
 }
