@@ -1,11 +1,16 @@
 package controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import model.Exercise;
+import model.Session;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class resultsController {
-
     public TextField timeField;
     public TextField distanceField;
     public Label timeLabel;
@@ -17,15 +22,20 @@ public class resultsController {
     public TextField weigthField;
     public RadioButton strengthButton;
     public RadioButton enduranceButton;
-    public ComboBox sessionChoice;
+    public ComboBox<String> sessionChoice;
+    public HashMap<String,Integer> sessionMap;
+    public ComboBox<String> exerciseChoice;
+    private HashMap<String,Integer> exerciseMap;
 
     public void initialize() {
-
         ToggleGroup group = new ToggleGroup();
+        sessionMap = new HashMap<>();
+        exerciseMap = new HashMap<>();
         strengthButton.setToggleGroup(group);
         enduranceButton.setToggleGroup(group);
         strengthButton.setSelected(true);
-
+        fillSessionsBox();
+        fillExerciseBox();
         enduranceButton.selectedProperty().addListener((obj,oldValue,newValue)->{
             if(newValue) {
                 timeLabel.setVisible(true);
@@ -47,12 +57,31 @@ public class resultsController {
                 weigthLabel.setVisible(true);
             }
         });
+
+
     }
 
-    public void fetchSessions(){
-
-        
+    private void fillSessionsBox(){
+        sessionChoice.setItems(FXCollections.observableArrayList(Session.fecthAllSessions()));
+        ArrayList<String> array = Session.fecthAllSessions();
+        array.forEach(s->{
+            int id = Integer.parseInt(s.split("-")[0]);
+            sessionMap.put(s,id);
+        });
     }
+
+    private void fillExerciseBox(){
+        ArrayList<String> array = Exercise.fetchAllExercises();
+        ArrayList<String> nameArray = new ArrayList<>();
+        array.forEach(s->{
+            int id = Integer.parseInt(s.split(",")[0]);
+            String name = s.split(",")[1];
+            exerciseMap.put(name,id);
+            nameArray.add(name);
+        });
+        exerciseChoice.setItems(FXCollections.observableArrayList(nameArray));
+    }
+
 
     public void buttonPressed(ActionEvent actionEvent) {
 

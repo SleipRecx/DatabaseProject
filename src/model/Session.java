@@ -14,7 +14,7 @@ public class Session {
     protected int duration;
     protected Note note;
     protected ArrayList<Exercise> exercises;
-    protected Connection myConnection = Main.getDB().getConnection();
+    protected static Connection myConnection = Main.getDB().getConnection();
 
 
     public Session(Date date, int duration){
@@ -47,6 +47,25 @@ public class Session {
             e.printStackTrace();
         }
         return id;
+    }
+
+    public static ArrayList<String> fecthAllSessions(){
+        ArrayList<String> array = new ArrayList<>();
+        try{
+            String sql = "SELECT date, session_id as id from Training_session";
+            PreparedStatement ps = myConnection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
+            while(rs.next()){
+                int id= rs.getInt("id");
+                Date date = rs.getDate("date");
+                array.add(String.valueOf(id)+"-"+date.toString());
+            }
+            rs.close();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return array;
     }
 
 
