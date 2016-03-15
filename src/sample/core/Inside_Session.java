@@ -23,17 +23,11 @@ public class Inside_Session  extends  Session{
 
     public void storeInsideSession(){
         try {
-            Statement statement = myConnection.createStatement();
-            //TODO INSERT INTO DB
-            /* String sql  = "INSERT INTO Indoor_training (session_id_fk,ventilation,spectators) VALUES (?,?,?)";
-            PreparedStatement ps = myConnection.prepareStatement(sql);
-            ps.setInt(1,this.session_id_fk);
-            ps.setString(2,this.ventilation);
-            ps.setInt(3,this.spectators);
-            ps.executeUpdate(sql);
-            */
-
-
+            PreparedStatement ps = myConnection.prepareStatement("insert into Indoor_training(session_id_fk,ventilation,spectators) values(?,?,?)");
+            ps.setInt(1,10);
+            ps.setString(2,"Roshan");
+            ps.setInt(3, 600);
+            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

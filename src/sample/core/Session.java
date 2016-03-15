@@ -12,11 +12,8 @@ import java.sql.*;
 public class Session {
 
     public static final String SESSION_ID_FIELD_NAME = "session_id";
-
     public static final String DATE_FIELD_NAME = "date";
-
     public static final String DURATION_FIELD_NAME = "duration";
-
 
     protected int sessionid;
     protected Date date;
@@ -35,10 +32,9 @@ public class Session {
 
     public void storeSession(){
         try {
-
+            String sql = "INSERT INTO Training_session(date,duration) VALUES ('"+getDate().toString()+"',"+getDuration()+")";
             Statement statement = myConnection.createStatement();
-            //TODO insert session
-
+            statement.executeUpdate(sql);
             } catch (SQLException e) {
             e.printStackTrace();
         }
