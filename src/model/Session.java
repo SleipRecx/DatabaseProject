@@ -8,13 +8,12 @@ import java.sql.*;
 
 
 public class Session {
-
     protected int sessionid;
     protected Date date;
     protected int duration;
     protected Note note;
     protected ArrayList<Exercise> exercises;
-    protected Connection myConnection = Main.getDB().getConnection();
+    protected static Connection myConnection = Main.getDB().getConnection();
 
 
     public Session(Date date, int duration){
@@ -33,7 +32,7 @@ public class Session {
         }
     }
 
-    public int getBiggestId(){
+    public static int getBiggestId(){
         int id = -1;
         try {
             String sql  = "SELECT MAX(session_id) as maks from Training_session";

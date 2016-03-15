@@ -12,7 +12,7 @@ public class Note {
     private String exercise_purpose;
     private String tips;
     private int session_id_fk;
-    protected Connection myConnection = Main.getDB().getConnection();
+    private Connection myConnection = Main.getDB().getConnection();
 
     public Note(int shape, int performance, String exercise_purpose, String tips,int session_id_fk){
         this.shape = shape;
