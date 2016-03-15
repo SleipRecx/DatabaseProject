@@ -35,6 +35,8 @@ public class Note {
             e.printStackTrace();
         }
     }
+
+
     public String getTips() {
         return tips;
     }

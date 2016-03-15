@@ -59,13 +59,14 @@ public class sessionsController {
 
         Date date = Date.valueOf(datePicker.getValue());
         int duration = Integer.parseInt(durationField.textProperty().getValue());
+        int id;
 
         if(choiceBox.valueProperty().getValue().equals("Inside Session")){
             String ventilation = ventilationField.textProperty().getValue();
             int spectators = Integer.parseInt(spectatorsField.textProperty().getValue());
             Inside_Session session = new Inside_Session(date,duration,spectators,ventilation);
             session.storeSession();
-            int id = session.getBiggestId();
+            id = session.getBiggestId();
             session.setSession_id_fk(id);
             session.storeInsideSession();
 
@@ -75,7 +76,7 @@ public class sessionsController {
             Double temp = Double.parseDouble(tempField.getText());
             Outdoor_Session session = new Outdoor_Session(date,duration,temp,condition);
             session.storeSession();
-            int id = session.getBiggestId();
+            id = session.getBiggestId();
             session.setSession_id_fk(id);
             session.storeOutdoorSession();
         }
@@ -83,6 +84,8 @@ public class sessionsController {
         int shape = Integer.parseInt(shapeField.getText());
         String purpose = purposeField.getText();
         String tips = tipsField.getText();
+        Note note = new Note(shape,performance,purpose,tips,id);
+        note.storeNote();
 
 
         //Note note = new Note(shape,performance,purpose,tips,sessionid_fk);
