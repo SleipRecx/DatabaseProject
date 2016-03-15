@@ -6,11 +6,9 @@ import java.sql.*;
 
 public class Inside_Session  extends  Session{
 
-
     private String ventilation;
     private int spectators;
     private int session_id_fk;
-
 
     public Inside_Session(Date date, int duration, int spectators, String ventilation) {
         super(date, duration);
