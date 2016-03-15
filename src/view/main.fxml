@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
   <tabs>
     <Tab text="sessions">
       <content>
-            <fx:include fx:id="sessionsPage" source="sessions.fxml"/>
-      </content>
-    </Tab>
-    <Tab text="goals">
-      <content>
-        <fx:include fx:id="goalsPage" source="goals.fxml"/>
+        <fx:include fx:id="sessions" source="sessions.fxml" />
       </content>
     </Tab>
     <Tab text="results">
       <content>
-        <fx:include fx:id="resultsPage" source="results.fxml"/>
+        <fx:include fx:id="results" source="results.fxml" />
+      </content>
+    </Tab>
+    <Tab text="goals">
+      <content>
+        <fx:include fx:id="goals" source="goals.fxml" />
       </content>
     </Tab>
     <Tab text="templates">
       <content>
-        <fx:include fx:id="templatesPage" source="templates.fxml"/>
+        <fx:include fx:id="templates" source="templates.fxml" />
       </content>
     </Tab>
-    <Tab text="add exercises">
+    <Tab text="exercises/categories">
       <content>
-        <fx:include fx:id="exercisesPage" source="exercises.fxml"/>
+        <fx:include fx:id="exercises" source="exercises.fxml" />
       </content>
     </Tab>
   </tabs>

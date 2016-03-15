@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.exercisesController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ExercisesController">
    <children>
-      <Label layoutX="265.0" layoutY="79.0" text="Sessions" />
+      <TextField fx:id="exerciseNameField" layoutX="117.0" layoutY="131.0" prefHeight="28.0" prefWidth="126.0" promptText="text" />
+      <TextField fx:id="exerciseDescField" layoutX="117.0" layoutY="220.0" prefHeight="28.0" prefWidth="126.0" promptText="text" />
+      <ComboBox fx:id="exerciseCategoryBox" layoutX="42.0" layoutY="310.0" prefHeight="28.0" prefWidth="175.0" promptText="Exercise category" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="488.0" layoutX="274.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="1.0" />
+      <Button layoutX="88.0" layoutY="438.0" mnemonicParsing="false" onAction="#addExercisePressed" styleClass="btn-primary" text="Add Exercise" />
+      <Label layoutX="68.0" layoutY="18.0" styleClass="h3" text="New Exercise" />
+      <Label layoutX="366.0" layoutY="18.0" styleClass="h3" text="New Category" />
+      <Label layoutX="27.0" layoutY="136.0" prefHeight="17.0" prefWidth="54.0" text="Name:" />
+      <Label layoutX="27.0" layoutY="225.0" prefHeight="17.0" prefWidth="82.0" text="Description:" />
+      <TextField fx:id="categoryNameField" layoutX="395.0" layoutY="131.0" prefHeight="27.0" prefWidth="154.0" promptText="category name" />
+      <ComboBox fx:id="partOfBox" layoutX="395.0" layoutY="220.0" prefHeight="28.0" prefWidth="154.0" promptText="is a part of" />
+      <ComboBox fx:id="replaceBox" layoutX="395.0" layoutY="310.0" prefHeight="28.0" prefWidth="154.0" promptText="can replace" />
+      <Button layoutX="387.0" layoutY="445.0" mnemonicParsing="false" onAction="#addCategoryPressed" styleClass="btn-info" text="Add Category" />
+      <Label layoutX="314.0" layoutY="136.0" prefHeight="17.0" prefWidth="54.0" text="Name:" />
+      <Label layoutX="308.0" layoutY="225.0" opacity="0.5" prefHeight="18.0" prefWidth="65.0" text="Optional" />
+      <Label layoutX="308.0" layoutY="315.0" opacity="0.5" prefHeight="18.0" prefWidth="65.0" text="Optional" />
    </children>
 </Pane>

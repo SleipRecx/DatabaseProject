@@ -1,5 +1,5 @@
 package controller;
 
 
-public class goalsController {
+public class GoalsController {
 }

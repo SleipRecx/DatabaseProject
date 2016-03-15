@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -8,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.resultsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ResultsController">
    <children>
       <ComboBox fx:id="sessionChoice" layoutX="121.0" layoutY="42.0" prefHeight="27.0" prefWidth="199.0" promptText="Pick training session" />
       <Label layoutX="46.0" layoutY="47.0" text="Session:" />
@@ -22,13 +26,13 @@
       <Label fx:id="weigthLabel" layoutX="46.0" layoutY="249.0" text="Weigth: " />
       <Label fx:id="repsLabel" layoutX="34.0" layoutY="297.0" text="Repetitions:" />
       <Text fx:id="messageLable" layoutX="414.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message" visible="false" />
-      <Button layoutX="179.0" layoutY="377.0" mnemonicParsing="false" onAction="#buttonPressed" text="Submit" />
+      <Button layoutX="179.0" layoutY="389.0" mnemonicParsing="false" onAction="#buttonPressed" styleClass="btn-success" text="Submit" />
       <Label fx:id="distanceLabel" layoutX="42.0" layoutY="249.0" text="Distance:" visible="false" />
       <Label fx:id="timeLabel" layoutX="54.0" layoutY="297.0" text="Time:" visible="false" />
       <TextField fx:id="distanceField" layoutX="126.0" layoutY="245.0" promptText="Distance in km" visible="false" />
       <TextField fx:id="timeField" layoutX="126.0" layoutY="292.0" promptText="Time in minutes" visible="false" />
       <TextField fx:id="setsField" layoutX="126.0" layoutY="335.0" promptText="Sets" />
-      <Label fx:id="setsLabel" layoutX="33.0" layoutY="341.0" text="Sets:" />
+      <Label fx:id="setsLabel" layoutX="55.0" layoutY="340.0" text="Sets:" />
       <TextField fx:id="timeField1" layoutX="125.0" layoutY="335.0" promptText="Time in minutes" visible="false" />
    </children>
 </Pane>

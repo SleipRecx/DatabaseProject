@@ -8,7 +8,7 @@ import model.*;
 import java.sql.Date;
 import java.util.ArrayList;
 
-public class sessionsController {
+public class SessionsController {
 
     public TextField ventilationField;
     public TextField spectatorsField;
@@ -25,6 +25,7 @@ public class sessionsController {
     public TextField shapeField;
     public TextField purposeField;
     public TextArea tipsField;
+    private MainController main;
 
 
     public void initialize(){
@@ -87,6 +88,8 @@ public class sessionsController {
         Note note = new Note(shape,performance,purpose,tips,id);
         note.storeNote();
         clearfields();
+        main.updateSessions();
+
     }
 
     private void clearfields() {
@@ -103,5 +106,7 @@ public class sessionsController {
     }
 
 
-
+    public void attachMain(MainController controller) {
+        this.main = controller;
+    }
 }
