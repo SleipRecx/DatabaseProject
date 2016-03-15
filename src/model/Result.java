@@ -7,9 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by eddern on 15/03/16.
- */
 public class Result {
     protected int result_id;
     protected int exercise_id_fk;
