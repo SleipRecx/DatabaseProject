@@ -4,10 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
-import model.Endurance_to_result;
-import model.Exercise;
-import model.Result;
-import model.Session;
+import model.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -97,6 +95,11 @@ public class resultsController {
             endurance_result.storeEndurance_to_result();
         }
         else{
+
+            Strength_condition_to_result strength_condition_result = new Strength_condition_to_result(exercise_id_fk,session_id_fk,
+                    Integer.parseInt(weigthField.getText()),
+                    Integer.parseInt(repsField.getText()),
+                    Integer.parseInt(sets))
 
 
 
