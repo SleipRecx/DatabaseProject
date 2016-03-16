@@ -30,15 +30,34 @@ public class Exercise {
 
     public void storeCanReplaceExercise(){
         try{
-            String sql = "INSERT INTO Can_replace_exercise(can_replace_id_fk) VALUES(?)";
+            String sql = "INSERT INTO Can_replace_exercise(exercise_id_fk,can_replace_id_fk) VALUES(?,?)";
             PreparedStatement ps = myConnection.prepareStatement(sql);
-            ps.setInt(1,this.can_replace_id_fk);
+            ps.setInt(1,Exercise.fetchBiggestId());
+            ps.setInt(2,this.can_replace_id_fk);
             ps.execute();
         }
         catch (SQLException e){
             e.printStackTrace();
         }
     }
+
+
+    private static int fetchBiggestId() {
+        int id = -1;
+        try {
+            String sql  = "SELECT MAX(exercise_id) as maks from Exercise";
+            PreparedStatement ps = myConnection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
+            while(rs.next()){
+                id  = rs.getInt("maks");
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return id;
+    }
+
 
     public void storeExercise(){
         try{
