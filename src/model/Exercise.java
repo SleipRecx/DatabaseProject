@@ -7,10 +7,14 @@ import java.util.ArrayList;
 
 public class Exercise {
     protected static Connection myConnection = Main.getDB().getConnection();
+    private String name;
+    private String description;
+    private int category_id_fk;
 
-    public Exercise(){
-
-
+    public Exercise(String name, String description, int category_id_fk){
+        this.name = name;
+        this.description = description;
+        this.category_id_fk = category_id_fk;
     }
 
 
