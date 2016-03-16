@@ -67,7 +67,7 @@ public class SessionsController {
             int spectators = Integer.parseInt(spectatorsField.textProperty().getValue());
             Inside_Session session = new Inside_Session(date,duration,spectators,ventilation);
             session.storeSession();
-            id = session.getBiggestId();
+            id = Session.getBiggestId();
             session.setSession_id_fk(id);
             session.storeInsideSession();
 
@@ -77,7 +77,7 @@ public class SessionsController {
             Double temp = Double.parseDouble(tempField.getText());
             Outdoor_Session session = new Outdoor_Session(date,duration,temp,condition);
             session.storeSession();
-            id = session.getBiggestId();
+            id = Session.getBiggestId();
             session.setSession_id_fk(id);
             session.storeOutdoorSession();
         }
