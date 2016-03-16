@@ -19,11 +19,12 @@ public class MainController {
 
     public void updateExercises() {
         resultsController.fillExerciseBox();
+        exercisesController.fillExerciseChoiceBoxes();
     }
 
     public void updateCategories() {
-        exercisesController.fillCategoriesBox();
-        exercisesController.fillPartOfBox();
+        exercisesController.fillChoiceBoxes();
+
     }
 
     public void updateSessions() {

@@ -10,36 +10,86 @@ import model.*;
 
 public class ExercisesController {
 
-    public ComboBox replaceChoice;
-    public ComboBox partOfChoice;
+    public ComboBox<String> replaceChoice;
+    public ComboBox<String> partOfChoice;
     public TextField categoryNameField;
-    public ComboBox categoryChoice;
+    public ComboBox<String> categoryChoice;
     public TextField exerciseDescField;
     public TextField exerciseNameField;
     public HashMap<String, Integer> categoryMap;
-    public HashMap<String, Integer> partOfMap;
     public HashMap<String, Integer> replaceMap;
     private MainController main;
 
+
+    public void initialize(){
+        categoryMap = new HashMap<>();
+        replaceMap = new HashMap<>();
+        fillChoiceBoxes();
+        fillExerciseChoiceBoxes();
+
+    }
+    public void fillExerciseChoiceBoxes(){
+        ArrayList<String> exerciseNameArray = new ArrayList<>();
+        ArrayList<String> array = Exercise.fetchAllExercises();
+        array.forEach(s->{
+            int id = Integer.parseInt(s.split(",")[0]);
+            String name = s.split(",")[1];
+            replaceMap.put(name,id);
+            exerciseNameArray.add(name);
+        });
+        replaceChoice.setItems(FXCollections.observableArrayList(exerciseNameArray));
+    }
+
     public void fillChoiceBoxes() {
         ArrayList<String> categoryNameArray = new ArrayList<>();
-        ArrayList<String> array = Category.fecthAllCategories();
-        array.forEach(c-> {
-            int id = Integer.parseInt(c.split(",")[0]);
-            String name = c.split(",")[1];
-            categoryMap.put(name, id);
+        ArrayList<String> array = Category.fetchAllCategories();
+        array.forEach(string-> {
+            int id = Integer.parseInt(string.split(",")[0]);
+            String name = string.split(",")[1];
+            categoryMap.put(name,id);
             categoryNameArray.add(name);
         });
-        categoryChoice.setItems(FXCollections.observableArrayList(Category.categoryNameArray()));
-        partOfChoice.setItems(FXCollections.observableArrayList(Category.categoryNameArray()));
+        categoryChoice.setItems(FXCollections.observableArrayList(categoryNameArray));
+        partOfChoice.setItems(FXCollections.observableArrayList(categoryNameArray));
     }
 
     public void addExercisePressed(ActionEvent actionEvent) {
+        String name = exerciseNameField.getText();
+        String desc = exerciseDescField.getText();
+        int categoryId = categoryMap.get(categoryChoice.getValue());
+        if(replaceChoice.getValue()!=null){
+            int replaceId = replaceMap.get(replaceChoice.getValue());
+            Exercise exercise = new Exercise(name,desc,categoryId,replaceId);
+            exercise.storeExercise();
+            exercise.storeCanReplaceExercise();
+        }
+        else {
+            Exercise exercise = new Exercise(name,desc,categoryId);
+            exercise.storeExercise();
+        }
+        exerciseNameField.setText("");
+        exerciseDescField.setText("");
+        categoryChoice.setValue(null);
+        replaceChoice.setValue(null);
         main.updateExercises();
+
     }
 
     public void addCategoryPressed(ActionEvent actionEvent) {
-      main.updateCategories();
+        String name = categoryNameField.getText();
+        if(partOfChoice.getValue()!=null){
+            int id = categoryMap.get(partOfChoice.getValue());
+            Category category = new Category(name,id);
+            category.storeCategory();
+            category.storeCategory_belongs();
+        }
+        else{
+            Category category = new Category(name);
+            category.storeCategory();
+        }
+        categoryNameField.setText("");
+        partOfChoice.setValue(null);
+        main.updateCategories();
     }
 
     public void attachMain(MainController controller) {

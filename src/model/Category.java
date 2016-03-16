@@ -2,10 +2,8 @@ package model;
 
 import controller.Main;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class Category {
     private int category_id;
@@ -20,6 +18,23 @@ public class Category {
     public Category(String type, int parent_category_id_fk){
         this.type = type;
         this.parent_category_id_fk = parent_category_id_fk;
+    }
+
+    public static ArrayList<String> fetchAllCategories(){
+        ArrayList<String> array = new ArrayList<>();
+        try{
+            PreparedStatement ps = myConnection.prepareStatement("SELECT * FROM Category");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                int id= rs.getInt("category_id");
+                String name = rs.getString("type");
+                array.add(String.valueOf(id)+","+name);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return array;
     }
 
 
@@ -38,7 +53,7 @@ public class Category {
             String sql = "INSERT INTO Category_belongs(parent_category_id_fk,category_id_fk) VALUES (?,?)";
             PreparedStatement ps = myConnection.prepareStatement(sql);
             ps.setInt(1,parent_category_id_fk);
-            ps.setInt(2,getBiggestId());
+            ps.setInt(2,Category.getBiggestId());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

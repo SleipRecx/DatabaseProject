@@ -42,7 +42,7 @@ public class Exercise {
     }
 
 
-    private static int fetchBiggestId() {
+    public static int fetchBiggestId() {
         int id = -1;
         try {
             String sql  = "SELECT MAX(exercise_id) as maks from Exercise";
@@ -93,12 +93,7 @@ public class Exercise {
     }
 
 
-    public int getCategory_id_fk() {
-        return category_id_fk;
-    }
-    public void setCategory_id_fk(int category_id_fk) {
-        this.category_id_fk = category_id_fk;
-    }
+
     public String getName() {
         return name;
     }
