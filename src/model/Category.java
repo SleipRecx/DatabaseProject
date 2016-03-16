@@ -48,7 +48,7 @@ class Category {
     public static int getBiggestId(){
         int id = -1;
         try {
-            String sql  = "SELECT MAX(category_if) as maks from Category";
+            String sql  = "SELECT MAX(category_id) as maks from Category";
             PreparedStatement ps = myConnection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery(sql);
             while(rs.next()){
