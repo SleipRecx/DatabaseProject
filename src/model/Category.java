@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-class Category {
+public class Category {
     private int category_id;
     private String type;
     private int parent_category_id_fk;

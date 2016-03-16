@@ -4,13 +4,11 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
+import model.*;
 
 public class ExercisesController {
-
 
     public ComboBox replaceChoice;
     public ComboBox partOfChoice;
@@ -23,21 +21,17 @@ public class ExercisesController {
     public HashMap<String, Integer> replaceMap;
     private MainController main;
 
-
-
-
-    public void fillCategoriesBox() {
-        categoryChoice.setItems(FXCollections.observableArrayList(Category.fecthAllCategories()));
+    public void fillChoiceBoxes() {
+        ArrayList<String> categoryNameArray = new ArrayList<>();
         ArrayList<String> array = Category.fecthAllCategories();
         array.forEach(c-> {
             int id = Integer.parseInt(c.split(",")[0]);
             String name = c.split(",")[1];
             categoryMap.put(name, id);
+            categoryNameArray.add(name);
         });
-    }
-
-    public void fillPartOfBox(){
-
+        categoryChoice.setItems(FXCollections.observableArrayList(Category.categoryNameArray()));
+        partOfChoice.setItems(FXCollections.observableArrayList(Category.categoryNameArray()));
     }
 
     public void addExercisePressed(ActionEvent actionEvent) {
