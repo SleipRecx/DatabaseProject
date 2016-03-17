@@ -27,7 +27,10 @@ public class ResultTableController implements Initializable{
     private ObservableList<Strength_condition_to_result> list;
     private MainController main;
 
-
+    /**
+     *
+     * @param location fxml-location that calls the method
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fillBox();
@@ -38,6 +41,9 @@ public class ResultTableController implements Initializable{
 
     }
 
+    /**
+     * Fills the combobox in the resulttable-page
+     */
     public void fillBox(){
         ArrayList<String> result = Session.fecthAllSessionsString();
         result.forEach(s->{
@@ -47,6 +53,9 @@ public class ResultTableController implements Initializable{
         comboBox.setItems(FXCollections.observableArrayList(result));
     }
 
+    /**
+     * Sets cell-values
+     */
     public void fillData(){
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         setsColumn.setCellValueFactory(new  PropertyValueFactory<>("sets"));
@@ -55,6 +64,11 @@ public class ResultTableController implements Initializable{
         table.setItems(list);
     }
 
+    /**
+     *
+     * @param main is the mainController
+     * Attaches the controller to the main controller.
+     */
     public void attachMain(MainController main){
         this.main = main;
     }

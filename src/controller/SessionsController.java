@@ -30,6 +30,10 @@ public class SessionsController implements Initializable{
     public TextArea tipsField;
     private MainController main;
 
+    /**
+     * @param location fxml-location that calls the method
+     * Fixes so the choiceboxes change when the session-conditions change
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         choiceBox.setItems(FXCollections.observableArrayList("Outside Session", "Inside Session"));
@@ -59,7 +63,10 @@ public class SessionsController implements Initializable{
 
     }
 
-
+    /**
+     * @param actionEvent the events that calls the method
+     * submits and stores the values in the inputs fields when button is pressed
+     */
     public void buttonPressed(ActionEvent actionEvent) {
 
         Date date = Date.valueOf(datePicker.getValue());
@@ -96,6 +103,9 @@ public class SessionsController implements Initializable{
 
     }
 
+    /**
+     * Clears the fields after submitting
+     */
     private void clearfields() {
         ventilationField.setText("");
         datePicker.setValue(null);
@@ -109,7 +119,11 @@ public class SessionsController implements Initializable{
         performanceField.setText("");
     }
 
-
+    /**
+     *
+     * @param controller is the mainController
+     * Attaches the controller to the main controller
+     */
     public void attachMain(MainController controller) {
         this.main = controller;
     }
