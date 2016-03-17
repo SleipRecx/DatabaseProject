@@ -34,7 +34,6 @@ public class Main extends Application {
     }
 
     /**
-     *
      * @return database
      */
     public static DB_Setup getDB() {

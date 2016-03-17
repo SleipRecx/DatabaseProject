@@ -14,7 +14,6 @@ public class MainController implements Initializable {
     @FXML ResultTableController resultTableController;
 
     /**
-     *
      * @param location fxml-location that calls the method
      * Attaches all controllers to mainController
      */

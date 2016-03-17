@@ -102,7 +102,6 @@ public class ResultsController implements Initializable {
     }
 
     /**
-     *
      * @param actionEvent the events that calls the method
      * Submits the fields
      */
@@ -146,7 +145,6 @@ public class ResultsController implements Initializable {
     }
 
     /**
-     *
      * @param controller is the mainController
      * attaches the controller to the mainController
      */

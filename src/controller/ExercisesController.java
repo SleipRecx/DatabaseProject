@@ -70,7 +70,6 @@ public class ExercisesController implements Initializable{
     }
 
     /**
-     *
      * @param actionEvent the events that calls the method
      * Adds exercise after filling in info
      */
@@ -97,7 +96,6 @@ public class ExercisesController implements Initializable{
     }
 
     /**
-     *
      * @param actionEvent the events that calls the method
      * Adds category/partOf-category after filling in info
      */
@@ -119,14 +117,10 @@ public class ExercisesController implements Initializable{
     }
 
     /**
-     *
      * @param controller is the main controller
      * Attaches the controller to the main controller
      */
     public void attachMain(MainController controller) {
         this.main = controller;
     }
-
-
-
 }

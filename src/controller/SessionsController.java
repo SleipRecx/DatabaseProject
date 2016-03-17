@@ -120,7 +120,6 @@ public class SessionsController implements Initializable{
     }
 
     /**
-     *
      * @param controller is the mainController
      * Attaches the controller to the main controller
      */

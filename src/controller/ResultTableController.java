@@ -65,7 +65,6 @@ public class ResultTableController implements Initializable{
     }
 
     /**
-     *
      * @param main is the mainController
      * Attaches the controller to the main controller.
      */
