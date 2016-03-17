@@ -2,7 +2,6 @@ package model;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,53 +15,6 @@ public class Strength_condition_to_result extends Result{
     private SimpleIntegerProperty result_id_fk = new SimpleIntegerProperty();
     private SimpleStringProperty name = new SimpleStringProperty();
 
-    public int getWeight() {
-        return weight.get();
-    }
-
-    public SimpleIntegerProperty weightProperty() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight.set(weight);
-    }
-
-    public int getReps() {
-        return reps.get();
-    }
-
-    public SimpleIntegerProperty repsProperty() {
-        return reps;
-    }
-
-    public void setReps(int reps) {
-        this.reps.set(reps);
-    }
-
-    public int getSets() {
-        return sets.get();
-    }
-
-    public SimpleIntegerProperty setsProperty() {
-        return sets;
-    }
-
-    public void setSets(int sets) {
-        this.sets.set(sets);
-    }
-
-    public int getResult_id_fk() {
-        return result_id_fk.get();
-    }
-
-    public SimpleIntegerProperty result_id_fkProperty() {
-        return result_id_fk;
-    }
-
-    public SimpleStringProperty nameProperty() {
-        return name;
-    }
 
     public Strength_condition_to_result(int exercise_id_fk, int session_id_fk, int weight, int reps, int sets){
         super(exercise_id_fk,session_id_fk);
@@ -70,7 +22,6 @@ public class Strength_condition_to_result extends Result{
         this.reps.set(reps);
         this.sets.set(sets);
     }
-
 
     public void storeStrength_condition_to_result(){
         try {
@@ -129,6 +80,7 @@ public class Strength_condition_to_result extends Result{
         return result;
     }
 
+
     public String getName(){
         return name.get();
     }
@@ -136,6 +88,7 @@ public class Strength_condition_to_result extends Result{
     public void setName(String name){
         this.name.set(name);
     }
+
     public void setResult_id_fk(int id){
         this.result_id_fk.set(id);
     }

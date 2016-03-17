@@ -2,15 +2,18 @@ package controller;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import model.*;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.ResourceBundle;
 
 
-public class ResultsController {
+public class ResultsController implements Initializable {
     public TextField timeField;
     public TextField distanceField;
     public Label timeLabel;
@@ -30,7 +33,9 @@ public class ResultsController {
     public Label setsLabel;
     private MainController main;
 
-    public void initialize() {
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         ToggleGroup group = new ToggleGroup();
         sessionMap = new HashMap<>();
         exerciseMap = new HashMap<>();
@@ -128,4 +133,6 @@ public class ResultsController {
     public void attachMain(MainController controller) {
         this.main = controller;
     }
+
+
 }

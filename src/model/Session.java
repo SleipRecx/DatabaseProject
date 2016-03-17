@@ -69,37 +69,11 @@ public class Session {
 
 
 
-    // START Getters and Setters
-    public ArrayList<Exercise> getExercises() {
-        return exercises;
-    }
-    public void setExercises(ArrayList<Exercise> exercises) {
-        this.exercises = exercises;
-    }
     public Date getDate() {
         return date;
-    }
-    public void setDate(Date date) {
-        this.date = date;
     }
     public int getDuration() {
         return duration;
     }
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-    public Note getNote() {
-        return note;
-    }
-    public void setNote(Note note) {
-        this.note = note;
-    }
-    public int getSessionid() {
-        return sessionid;
-    }
-    public void setSessionid(int sessionid) {
-        this.sessionid = sessionid;
-    }
-    // END Getters and Setters
 
 }

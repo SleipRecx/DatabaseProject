@@ -37,36 +37,4 @@ public class Note {
     }
 
 
-    public String getTips() {
-        return tips;
-    }
-
-    public void setTips(String tips) {
-        this.tips = tips;
-    }
-
-    public int getShape() {
-        return shape;
-    }
-
-    public void setShape(int shape) {
-        this.shape = shape;
-    }
-
-    public int getPerformance() {
-        return performance;
-    }
-
-    public void setPerformance(int performance) {
-        this.performance = performance;
-    }
-
-    public String getExercise_purpose() {
-        return exercise_purpose;
-    }
-
-    public void setExercise_purpose(String exercise_purpose) {
-        this.exercise_purpose = exercise_purpose;
-    }
-
 }
