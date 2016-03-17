@@ -68,8 +68,8 @@ public class ResultsController {
 
 
     protected void fillSessionsBox(){
-        sessionChoice.setItems(FXCollections.observableArrayList(Session.fecthAllSessions()));
-        ArrayList<String> array = Session.fecthAllSessions();
+        sessionChoice.setItems(FXCollections.observableArrayList(Session.fecthAllSessionsString()));
+        ArrayList<String> array = Session.fecthAllSessionsString();
         array.forEach(s->{
             int id = Integer.parseInt(s.split("-")[0]);
             sessionMap.put(s,id);

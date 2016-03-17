@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ResultTableController">
+   <children>
+      <TableView fx:id="table" layoutX="70.0" layoutY="118.0" prefHeight="211.0" prefWidth="464.0">
+         <columns>
+            <TableColumn fx:id="nameColumn" prefWidth="161.0" text="Exercise Name" />
+            <TableColumn fx:id="setsColumn" prefWidth="94.0" text="Sets" />
+            <TableColumn fx:id="weightColumn" prefWidth="97.0" text="Weight" />
+            <TableColumn fx:id="repsColumn" prefWidth="108.0" text="Reps" />
+         </columns>
+      </TableView>
+      <ComboBox fx:id="comboBox" layoutX="192.0" layoutY="46.0" prefHeight="27.0" prefWidth="216.0" promptText="Pick Training Session" />
+      <Label layoutX="82.0" layoutY="51.0" prefHeight="17.0" prefWidth="88.0" text="Pick Session:" />
+   </children>
+</Pane>

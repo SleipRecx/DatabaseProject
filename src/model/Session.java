@@ -48,7 +48,7 @@ public class Session {
         return id;
     }
 
-    public static ArrayList<String> fecthAllSessions(){
+    public static ArrayList<String> fecthAllSessionsString(){
         ArrayList<String> array = new ArrayList<>();
         try{
             String sql = "SELECT date, session_id as id from Training_session";
@@ -66,6 +66,7 @@ public class Session {
         }
         return array;
     }
+
 
 
     // START Getters and Setters

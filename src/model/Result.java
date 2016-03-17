@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Result {
     protected int exercise_id_fk;
@@ -44,6 +45,8 @@ public class Result {
         }
         return id;
     }
+
+
 
     public int getExercise_id_fk() {return exercise_id_fk;}
     public void setExercise_id_fk(int exercise_id_fk) {this.exercise_id_fk = exercise_id_fk;}
