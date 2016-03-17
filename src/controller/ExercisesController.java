@@ -2,13 +2,18 @@ package controller;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.ResourceBundle;
+
 import model.*;
 
-public class ExercisesController {
+public class ExercisesController implements Initializable{
 
     public ComboBox<String> replaceChoice;
     public ComboBox<String> partOfChoice;
@@ -21,13 +26,15 @@ public class ExercisesController {
     private MainController main;
 
 
-    public void initialize(){
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         categoryMap = new HashMap<>();
         replaceMap = new HashMap<>();
         fillChoiceBoxes();
         fillExerciseChoiceBoxes();
-
     }
+
     public void fillExerciseChoiceBoxes(){
         ArrayList<String> exerciseNameArray = new ArrayList<>();
         ArrayList<String> array = Exercise.fetchAllExercises();
@@ -95,6 +102,7 @@ public class ExercisesController {
     public void attachMain(MainController controller) {
         this.main = controller;
     }
+
 
 
 }

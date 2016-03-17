@@ -28,15 +28,6 @@ public class Main extends Application {
         }
     }
 
-    /*
-    Chill Query
-    select session_id,Exercise.name,sets, weight,reps from `Result`
-    join Exercise on exercise_id = exercise_id_fk
-    join Training_session on session_id = training_session_id_fk
-    join `Strength_condition_to_result` ind on ind.result_id_fk = `result_id`
-    group by training_session_id_fk,exercise_id
-
-     */
     public static DB_Setup getDB() {
         return db;
     }

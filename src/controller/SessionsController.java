@@ -2,13 +2,16 @@ package controller;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import model.*;
 
+import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class SessionsController {
+public class SessionsController implements Initializable{
 
     public TextField ventilationField;
     public TextField spectatorsField;
@@ -27,8 +30,8 @@ public class SessionsController {
     public TextArea tipsField;
     private MainController main;
 
-
-    public void initialize(){
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         choiceBox.setItems(FXCollections.observableArrayList("Outside Session", "Inside Session"));
         choiceBox.valueProperty().setValue("Outside Session");
         choiceBox.valueProperty().addListener((obj,oldValue,newValue) -> {
@@ -55,6 +58,7 @@ public class SessionsController {
         });
 
     }
+
 
     public void buttonPressed(ActionEvent actionEvent) {
 
@@ -109,4 +113,6 @@ public class SessionsController {
     public void attachMain(MainController controller) {
         this.main = controller;
     }
+
+
 }

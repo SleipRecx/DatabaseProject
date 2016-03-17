@@ -19,7 +19,7 @@ public class Category {
         this.type = type;
         this.parent_category_id_fk = parent_category_id_fk;
     }
-
+    
     public static ArrayList<String> fetchAllCategories(){
         ArrayList<String> array = new ArrayList<>();
         try{
@@ -75,13 +75,6 @@ public class Category {
         }
         return id;
     }
-
-    public int getCategory_id() {return category_id;}
-    public void setCategory_id(int category_id) {this.category_id = category_id;}
-    public String getType() {return type;}
-    public void setType(String type) {this.type = type;}
-    public int getParent_category_id_fk() {return parent_category_id_fk;}
-    public void setBelongs_to(int parent_category_id_fk) {this.parent_category_id_fk = parent_category_id_fk;}
 
 
 }

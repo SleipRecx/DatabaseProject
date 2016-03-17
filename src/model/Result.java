@@ -47,9 +47,4 @@ public class Result {
     }
 
 
-
-    public int getExercise_id_fk() {return exercise_id_fk;}
-    public void setExercise_id_fk(int exercise_id_fk) {this.exercise_id_fk = exercise_id_fk;}
-    public int getTraining_session_id_fk() {return training_session_id_fk;}
-    public void setTraining_session_id_fk(int training_session_id_fk) {this.training_session_id_fk = training_session_id_fk;}
 }
