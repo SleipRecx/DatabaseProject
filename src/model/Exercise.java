@@ -5,6 +5,10 @@ import controller.Main;
 import java.sql.*;
 import java.util.ArrayList;
 
+
+/**
+ * Class for storing and representing exercises
+ */
 public class Exercise {
     protected static Connection myConnection = Main.getDB().getConnection();
     private String name;
@@ -14,12 +18,25 @@ public class Exercise {
     private int category_id_fk;
     private int can_replace_id_fk;
 
+    /**
+     * Constructor that initialises the object
+     * @param name
+     * @param description
+     * @param category_id_fk the category the exercise shoudl be a part of
+     */
     public Exercise(String name, String description, int category_id_fk){
         this.name = name;
         this.description = description;
         this.category_id_fk = category_id_fk;
     }
 
+    /**
+     * Constructor that initialises the object that can replace another exercise
+     * @param name
+     * @param description
+     * @param category_id_fk the category the exercise shoudl be a part of
+     * @param can_replace_id_fk the id of the exercise this exercise can replace
+     */
     public Exercise(String name, String description, int category_id_fk, int can_replace_id_fk){
         this.name = name;
         this.description = description;
@@ -28,6 +45,9 @@ public class Exercise {
     }
 
 
+    /**
+     * Function for storing exercise that can replace another exercise
+     */
     public void storeCanReplaceExercise(){
         try{
             String sql = "INSERT INTO Can_replace_exercise(exercise_id_fk,can_replace_id_fk) VALUES(?,?)";
@@ -42,6 +62,10 @@ public class Exercise {
     }
 
 
+    /**
+     * Function for getting the biggest id from exercises in the database
+     * @return the biggest id
+     */
     public static int fetchBiggestId() {
         int id = -1;
         try {
@@ -59,6 +83,9 @@ public class Exercise {
     }
 
 
+    /**
+     * Function for storing Exercise in the database
+     */
     public void storeExercise(){
         try{
             String sql = "INSERT INTO Exercise(name,description,category_id_fk) VALUES(?,?,?)";
@@ -74,6 +101,10 @@ public class Exercise {
     }
 
 
+    /**
+     * Function for getting all the categories that are stored in the database
+     * @return ArrayList with all the exercises
+     */
     public static ArrayList<String> fetchAllExercises(){
         ArrayList<String> array = new ArrayList<>();
         try{
@@ -93,10 +124,18 @@ public class Exercise {
     }
 
 
-
+    /**
+     * Function that gets the name of the exercise
+     * @return name of exercise
+     */
     public String getName() {
         return name;
     }
+
+    /**
+     * Function for setting the name of the exercise
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
