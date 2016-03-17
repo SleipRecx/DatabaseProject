@@ -5,21 +5,37 @@ import controller.Main;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Class to represent and store categories
+ */
 public class Category {
     private int category_id;
     private String type;
     private int parent_category_id_fk;
     private static Connection myConnection = Main.getDB().getConnection();
 
+    /**
+     * Constructor for making a new category
+     * @param type
+     */
     public Category(String type){
         this.type = type;
     }
 
+    /**
+     * Constructor for making a category and adding it as a sub-category
+     * @param type
+     * @param parent_category_id_fk
+     */
     public Category(String type, int parent_category_id_fk){
         this.type = type;
         this.parent_category_id_fk = parent_category_id_fk;
     }
-    
+
+    /**
+     * Method for getting all the categories stored in the database
+     * @return ArrayList with all the categories
+     */
     public static ArrayList<String> fetchAllCategories(){
         ArrayList<String> array = new ArrayList<>();
         try{
@@ -37,7 +53,9 @@ public class Category {
         return array;
     }
 
-
+    /**
+     * Method for storing a category to the db
+     */
     public void storeCategory(){
         try {
             PreparedStatement ps = myConnection.prepareStatement("INSERT INTO Category(type) VALUES (?)");
@@ -48,6 +66,9 @@ public class Category {
         }
     }
 
+    /**
+     * Method for storing a category that is a part of another category
+     */
     public void storeCategory_belongs(){
         try {
             String sql = "INSERT INTO Category_belongs(parent_category_id_fk,category_id_fk) VALUES (?,?)";
@@ -60,6 +81,10 @@ public class Category {
         }
     }
 
+    /**
+     * Method for getting the biggest ID from the Category table in the database
+     * @return the biggest id
+     */
     public static int getBiggestId(){
         int id = -1;
         try {
@@ -75,6 +100,4 @@ public class Category {
         }
         return id;
     }
-
-
 }
