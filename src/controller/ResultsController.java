@@ -33,7 +33,10 @@ public class ResultsController implements Initializable {
     public Label setsLabel;
     private MainController main;
 
-
+    /**
+     * @param location fxml-location that calls the method
+     * Fixes so the choiceboxes change when the session-conditions change
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ToggleGroup group = new ToggleGroup();
@@ -71,7 +74,9 @@ public class ResultsController implements Initializable {
         });
     }
 
-
+    /**
+     * Fills session-chociebox
+     */
     protected void fillSessionsBox(){
         sessionChoice.setItems(FXCollections.observableArrayList(Session.fecthAllSessionsString()));
         ArrayList<String> array = Session.fecthAllSessionsString();
@@ -81,6 +86,9 @@ public class ResultsController implements Initializable {
         });
     }
 
+    /**
+     * Fills exercise-choicebox
+     */
     protected void fillExerciseBox(){
         ArrayList<String> array = Exercise.fetchAllExercises();
         ArrayList<String> nameArray = new ArrayList<>();
@@ -93,6 +101,11 @@ public class ResultsController implements Initializable {
         exerciseChoice.setItems(FXCollections.observableArrayList(nameArray));
     }
 
+    /**
+     *
+     * @param actionEvent the events that calls the method
+     * Submits the fields
+     */
     public void buttonPressed(ActionEvent actionEvent) {
         int exercise_id_fk = exerciseMap.get(exerciseChoice.getValue());
         int session_id_fk = sessionMap.get(sessionChoice.getValue());
@@ -119,6 +132,9 @@ public class ResultsController implements Initializable {
         clearFields();
     }
 
+    /**
+     * Clears fields after submitting
+     */
     private void clearFields() {
         timeField.setText("");
         distanceField.setText("");
@@ -129,7 +145,11 @@ public class ResultsController implements Initializable {
         sessionChoice.setValue(null);
     }
 
-
+    /**
+     *
+     * @param controller is the mainController
+     * attaches the controller to the mainController
+     */
     public void attachMain(MainController controller) {
         this.main = controller;
     }

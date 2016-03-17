@@ -13,7 +13,11 @@ public class MainController implements Initializable {
     @FXML ResultsController resultsController;
     @FXML ResultTableController resultTableController;
 
-
+    /**
+     *
+     * @param location fxml-location that calls the method
+     * Attaches all controllers to mainController
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         sessionsController.attachMain(this);
@@ -22,17 +26,26 @@ public class MainController implements Initializable {
         resultTableController.attachMain(this);
     }
 
+    /**
+     * Updates exercises with filling the choiceboxes
+     */
     public void updateExercises() {
         resultsController.fillExerciseBox();
         exercisesController.fillExerciseChoiceBoxes();
         resultTableController.fillData();
     }
 
+    /**
+     * Updates categories with filling the choiceboxes
+     */
     public void updateCategories() {
         exercisesController.fillChoiceBoxes();
 
     }
 
+    /**
+     * Updates sessions with filling the choiceboxes
+     */
     public void updateSessions() {
         resultsController.fillSessionsBox();
         resultTableController.fillBox();

@@ -12,7 +12,9 @@ public class Main extends Application {
     private static DB_Setup db = new
     DB_Setup("jdbc:mysql://mysql.stud.ntnu.no/markua_treningprosjekt","markua_dbproject","dbproject");
 
-
+    /**
+     * Starts the application
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../view/main.fxml"));
@@ -21,6 +23,9 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * stops the database-connection
+     */
     @Override
     public void stop() throws Exception {
         if (db != null) {
@@ -28,6 +33,10 @@ public class Main extends Application {
         }
     }
 
+    /**
+     *
+     * @return database
+     */
     public static DB_Setup getDB() {
         return db;
     }

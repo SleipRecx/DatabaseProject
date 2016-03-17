@@ -26,7 +26,10 @@ public class ExercisesController implements Initializable{
     private MainController main;
 
 
-
+    /**
+     * Initializes HashMaps and runs fucntions to fill the choiceboxes.
+     * @param location fxml-location that calls the method
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         categoryMap = new HashMap<>();
@@ -35,6 +38,9 @@ public class ExercisesController implements Initializable{
         fillExerciseChoiceBoxes();
     }
 
+    /**
+     * Fills choicebox "replaceChoice"
+     */
     public void fillExerciseChoiceBoxes(){
         ArrayList<String> exerciseNameArray = new ArrayList<>();
         ArrayList<String> array = Exercise.fetchAllExercises();
@@ -47,6 +53,9 @@ public class ExercisesController implements Initializable{
         replaceChoice.setItems(FXCollections.observableArrayList(exerciseNameArray));
     }
 
+    /**
+     * Fills choiceboxes "categoryChoice" and "partOfChoice"
+     */
     public void fillChoiceBoxes() {
         ArrayList<String> categoryNameArray = new ArrayList<>();
         ArrayList<String> array = Category.fetchAllCategories();
@@ -60,6 +69,11 @@ public class ExercisesController implements Initializable{
         partOfChoice.setItems(FXCollections.observableArrayList(categoryNameArray));
     }
 
+    /**
+     *
+     * @param actionEvent the events that calls the method
+     * Adds exercise after filling in info
+     */
     public void addExercisePressed(ActionEvent actionEvent) {
         String name = exerciseNameField.getText();
         String desc = exerciseDescField.getText();
@@ -82,6 +96,11 @@ public class ExercisesController implements Initializable{
 
     }
 
+    /**
+     *
+     * @param actionEvent the events that calls the method
+     * Adds category/partOf-category after filling in info
+     */
     public void addCategoryPressed(ActionEvent actionEvent) {
         String name = categoryNameField.getText();
         if(partOfChoice.getValue()!=null){
@@ -99,6 +118,11 @@ public class ExercisesController implements Initializable{
         main.updateCategories();
     }
 
+    /**
+     *
+     * @param controller is the main controller
+     * Attaches the controller to the main controller
+     */
     public void attachMain(MainController controller) {
         this.main = controller;
     }
