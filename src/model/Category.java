@@ -25,7 +25,7 @@ public class Category {
     /**
      * Constructor for making a category and adding it as a sub-category
      * @param type
-     * @param parent_category_id_fk
+     * @param parent_category_id_fk id of the category this category is a sub-category of
      */
     public Category(String type, int parent_category_id_fk){
         this.type = type;

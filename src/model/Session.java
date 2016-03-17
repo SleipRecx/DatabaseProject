@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.sql.*;
 
 
+/**
+ * Class for representing and storing the sessions
+ */
 public class Session {
     protected int sessionid;
     protected Date date;
@@ -16,11 +19,19 @@ public class Session {
     protected static Connection myConnection = Main.getDB().getConnection();
 
 
+    /**
+     * Constructor for the session
+     * @param date
+     * @param duration
+     */
     public Session(Date date, int duration){
         this.date = date;
         this.duration = duration;
     }
 
+    /**
+     * Funtion for storing the session to the database
+     */
     public void storeSession(){
         try {
             PreparedStatement ps = myConnection.prepareStatement("INSERT INTO Training_session(date,duration) VALUES (?,?)");
@@ -32,6 +43,10 @@ public class Session {
         }
     }
 
+    /**
+     * Function for getting the biggest id of the sessions in the databse
+     * @return the biggest id
+     */
     public static int getBiggestId(){
         int id = -1;
         try {
@@ -48,6 +63,10 @@ public class Session {
         return id;
     }
 
+    /**
+     * Function for getting all the sessions that are stored in the database
+     * @return ArrayList with all the sessions
+     */
     public static ArrayList<String> fecthAllSessionsString(){
         ArrayList<String> array = new ArrayList<>();
         try{
@@ -68,10 +87,18 @@ public class Session {
     }
 
 
-
+    /**
+     * Function for getting the date of the session
+     * @return date
+     */
     public Date getDate() {
         return date;
     }
+
+    /**
+     * Function for getting the duration of the session
+     * @return duration
+     */
     public int getDuration() {
         return duration;
     }

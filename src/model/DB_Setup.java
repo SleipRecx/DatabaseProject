@@ -13,9 +13,9 @@ public class DB_Setup {
 
     /**
      * Constructor where the connection is made
-     * @param DB_URL
-     * @param DB_USERNAME
-     * @param DB_PASSWORD
+     * @param DB_URL URL for the database
+     * @param DB_USERNAME Username for the database
+     * @param DB_PASSWORD Password for the database
      */
     public DB_Setup(String DB_URL, String DB_USERNAME, String DB_PASSWORD) {
         this.DATABASE_URL = DB_URL;
