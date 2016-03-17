@@ -1,6 +1,9 @@
 package model;
 import java.sql.*;
 
+/**
+ * Class for setting up connection to the database
+ */
 public class DB_Setup {
     private static final String MYSQL_DRIVER = "com.mysql.jdbc.Driver";
     private final String DATABASE_URL;
@@ -8,6 +11,12 @@ public class DB_Setup {
     private final String DB_PASSWORD;
     private Connection myConnection;
 
+    /**
+     * Constructor where the connection is made
+     * @param DB_URL
+     * @param DB_USERNAME
+     * @param DB_PASSWORD
+     */
     public DB_Setup(String DB_URL, String DB_USERNAME, String DB_PASSWORD) {
         this.DATABASE_URL = DB_URL;
         this.DB_USERNAME = DB_USERNAME;
@@ -15,6 +24,9 @@ public class DB_Setup {
         createConnect();
     }
 
+    /**
+     * Method for creating connection
+     */
     private void createConnect(){
         try {
             System.out.println("Connecting to selected database...");
@@ -28,6 +40,9 @@ public class DB_Setup {
         }
     }
 
+    /**
+     * Method for closing connection
+     */
     public void closeConnection(){
         try {
             myConnection.close();
@@ -37,6 +52,10 @@ public class DB_Setup {
         }
     }
 
+    /**
+     * Method for getting the connection
+     * @return connection to the database
+     */
     public Connection getConnection() {
         return myConnection;
     }
